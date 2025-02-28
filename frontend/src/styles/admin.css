@@ -1,0 +1,178 @@
+/* ================ Admin Panel Styles ================ */
+.admin-container {
+  --panel-bg: var(--surface);
+  --option-bg: hsl(215, 20%, 97%);
+  --danger: #ef4444;
+  
+  width: min(90%, 1400px);
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--panel-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.admin-header {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Panel Layout */
+.admin-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Admin Cards */
+.admin-card {
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.admin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* User List */
+.user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: var(--option-bg);
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
+.user-item:hover {
+  background: hsl(215, 20%, 93%);
+}
+
+.user-info {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.user-email {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Admin Controls */
+.admin-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.admin-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: calc(var(--radius) - 2px);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.admin-button--primary {
+  background: var(--primary);
+  color: var(--surface);
+}
+
+.admin-button--primary:hover {
+  background: var(--primary-hover);
+}
+
+.admin-button--danger {
+  background: var(--danger);
+  color: var(--surface);
+}
+
+.admin-button--danger:hover {
+  background: #dc2626;
+}
+
+/* Role Select */
+.role-select {
+  padding: 0.5rem;
+  border: 1px solid hsl(215, 20%, 85%);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+/* Audit Log */
+.audit-log {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.log-item {
+  padding: 1rem;
+  border-bottom: 1px solid hsl(215, 20%, 90%);
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 1.5rem;
+  }
+  
+  .user-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .admin-controls {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+/* Loading State */
+.admin-skeleton {
+  animation: shimmer 1.5s infinite linear;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    hsl(215, 20%, 95%) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  height: 56px;
+  border-radius: var(--radius);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .user-item {
+    background: hsl(215, 15%, 20%);
+  }
+  
+  .user-item:hover {
+    background: hsl(215, 15%, 25%);
+  }
+}

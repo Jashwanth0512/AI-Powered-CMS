@@ -1,0 +1,154 @@
+/* ================ Editor Styles ================ */
+.editor-container {
+  --editor-bg: var(--surface);
+  --editor-border: 1px solid hsl(215, 20%, 85%);
+  --editor-focus-border: 2px solid var(--primary);
+  --editor-focus-shadow: 0 0 0 3px hsla(215, 80%, 60%, 0.2);
+  
+  width: min(90%, 1200px);
+  margin: 2rem auto;
+  padding: 2rem 0;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.editor-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--editor-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.toolbar-button {
+  padding: 0.5rem 1rem;
+  border: var(--editor-border);
+  background: var(--editor-bg);
+  border-radius: calc(var(--radius) - 2px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toolbar-button:hover {
+  background: hsl(215, 20%, 97%);
+  transform: translateY(-1px);
+}
+
+.toolbar-button.active {
+  background: var(--primary);
+  color: var(--surface);
+  border-color: var(--primary);
+}
+
+.editor-content {
+  width: 100%;
+  min-height: 60vh;
+  padding: 1.5rem;
+  border: var(--editor-border);
+  border-radius: var(--radius);
+  background: var(--editor-bg);
+  color: var(--text-primary);
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1.6;
+  resize: vertical;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.editor-content:focus {
+  border: var(--editor-focus-border);
+  box-shadow: var(--editor-focus-shadow);
+  outline: none;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+}
+
+.editor-button {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: var(--surface);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.editor-button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.editor-button:active {
+  transform: translateY(0);
+}
+
+/* AI Suggestions Panel */
+.ai-suggestions {
+  margin-top: 2rem;
+  border-top: var(--editor-border);
+  padding-top: 1.5rem;
+}
+
+.suggestion-item {
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: hsl(215, 20%, 97%);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background: hsl(215, 20%, 92%);
+  transform: translateX(5px);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .editor-container {
+    padding: 1rem;
+  }
+  
+  .editor-toolbar {
+    flex-wrap: wrap;
+  }
+  
+  .editor-content {
+    min-height: 50vh;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .editor-content {
+    background: hsl(215, 15%, 20%);
+    border-color: hsl(215, 15%, 30%);
+  }
+  
+  .toolbar-button:hover {
+    background: hsl(215, 15%, 25%);
+  }
+}
+
+/* Readability Enhancements */
+.editor-content h1, 
+.editor-content h2, 
+.editor-content h3 {
+  line-height: 1.2;
+  margin: 1.5rem 0 1rem;
+}
+
+.editor-content p {
+  margin-bottom: 1rem;
+}
